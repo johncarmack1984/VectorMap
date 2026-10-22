@@ -2,8 +2,6 @@
   "version": 8,
   "name": "mapeak-bike",
   "metadata": {"owner": "Mapeak.com"},
-  "center": [35, 32],
-  "zoom": 14,
   "sources": {
     "mapeak-schema": {
       "type": "vector",
@@ -2558,31 +2556,40 @@
       }
     },
     {
-      "id": "barrier_other",
+      "id": "ladder",
+      "type": "symbol",
+      "source": "mapeak-schema",
+      "source-layer": "barrier",
+      "filter": ["all", ["==", "class", "ladder"]],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-image": "ladder",
+        "icon-size": {"stops": [[14, 0.4], [20, 1]]},
+        "icon-padding": [20, 20, 20, 20]
+      }
+    },
+    {
+      "id": "barrier_cattle_grid",
       "type": "symbol",
       "source": "mapeak-schema",
       "source-layer": "barrier",
       "minzoom": 15,
-      "filter": ["all", ["==", "class", "other"], ["!=", "barrier", "bollard"]],
+      "filter": ["all", ["==", "class", "cattle_grid"]],
       "layout": {
-        "icon-image": "gate_open",
-        "icon-size": {"stops": [[14, 0.4], [20, 1]]}
+        "icon-image": "cattle_grid",
+        "icon-size": {"stops": [[14, 0.5], [20, 1]]}
       },
       "paint": {}
     },
     {
-      "id": "barrier_closed_gate",
+      "id": "barrier_open_gate",
       "type": "symbol",
       "source": "mapeak-schema",
       "source-layer": "barrier",
       "minzoom": 15,
-      "filter": [
-        "all",
-        ["==", "class", "closed_gate"],
-        ["!=", "barrier", "fence"]
-      ],
+      "filter": ["all", ["in", "class", "open_gate", "other"], ["!=", "barrier", "bollard"]],
       "layout": {
-        "icon-image": "gate_closed",
+        "icon-image": "gate_open",
         "icon-size": {"stops": [[14, 0.4], [20, 1]]}
       },
       "paint": {}
@@ -2605,28 +2612,19 @@
       "paint": {"icon-opacity": 1, "icon-halo-width": 0}
     },
     {
-      "id": "barrier_open_gate",
+      "id": "barrier_closed_gate",
       "type": "symbol",
       "source": "mapeak-schema",
       "source-layer": "barrier",
       "minzoom": 15,
-      "filter": ["all", ["==", "class", "open_gate"]],
+      "filter": [
+        "all",
+        ["==", "class", "closed_gate"],
+        ["!=", "barrier", "fence"]
+      ],
       "layout": {
-        "icon-image": "gate_open",
+        "icon-image": "gate_closed",
         "icon-size": {"stops": [[14, 0.4], [20, 1]]}
-      },
-      "paint": {}
-    },
-    {
-      "id": "barrier_cattle_grid",
-      "type": "symbol",
-      "source": "mapeak-schema",
-      "source-layer": "barrier",
-      "minzoom": 15,
-      "filter": ["all", ["==", "class", "cattle_grid"]],
-      "layout": {
-        "icon-image": "cattle_grid",
-        "icon-size": {"stops": [[14, 0.5], [20, 1]]}
       },
       "paint": {}
     },

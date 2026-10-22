@@ -3983,6 +3983,19 @@
       }
     },
     {
+      "id": "ladder",
+      "type": "symbol",
+      "source": "mapeak-schema",
+      "source-layer": "barrier",
+      "filter": ["all", ["==", "class", "ladder"]],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-image": "ladder",
+        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
+        "icon-padding": [20, 20, 20, 20]
+      }
+    },
+    {
       "id": "gate-open",
       "type": "symbol",
       "source": "mapeak-schema",
